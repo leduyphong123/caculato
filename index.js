@@ -7,8 +7,6 @@ function numberValue(key) {
 function operatorValue(key) {
     var a = document.getElementById("number");
     const arr = a.innerText.split(" ");
-
-
         a.innerHTML = (document.getElementById("number").innerHTML + " " + key + " ");       
 
     
@@ -18,6 +16,13 @@ function operatorValue(key) {
 function resultValue() {
     const arr = document.getElementById("number").innerText.split(" ");
     const oldResults = document.getElementById("number").innerText + " = ";
+
+    for(let i=1;i<arr.length;i++){
+        if(arr[i]==arr[i+1]){
+            arr.splice(arr.indexOf(arr[i+1]),1);
+            i--;
+        }
+    }
     do {
         if (arr.includes("x")) {
             checkCalculate("x", arr);
